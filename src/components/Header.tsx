@@ -8,8 +8,8 @@ import {
 
 export default function Header() {
   return (
-    <header className='bg-white shadow-md'>
-      <div className='container flex justify-around mx-auto items-center gap-4 py-8 w-[90%] '>
+    <header className='bg-white shadow-md fixed top-0 left-0 right-0 z-20'>
+      <div className='container flex justify-between mx-auto items-center gap-4 py-8 w-[90%] '>
         <div className='flex md:gap-8 gap-5 items-center'>
           <button>
             <Bars3Icon className='w-6 h-6 text-gray-600' />
@@ -32,7 +32,7 @@ export default function Header() {
             className='text-slate-600'
           >
             <HeartIcon className='w-7 h-7 md:hidden' />
-            <span className='hidden md:block'>Carrito</span>
+            <span className='hidden md:block'>Favoritos</span>
           </NavLink>
           <NavLink
             to='/carrito'
