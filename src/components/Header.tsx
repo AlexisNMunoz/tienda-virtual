@@ -22,21 +22,21 @@ export default function Header() {
         <div>
           <Link to='/'>
             <h2 className='uppercase font-bold text-gray-800 text-2xl break-normal text-center'>
-              Marca <span className='italic text-rose-600 '>Loney</span>
+              Marca <span className='italic text-rose-600 '>Lonely</span>
             </h2>
           </Link>
         </div>
         <nav className='flex md:gap-8 gap-5  items-center'>
           <NavLink
             to='/favoritos'
-            className='text-slate-600'
+            className={({ isActive }) => (isActive ? 'text-rose-500' : 'text-slate-600')}
           >
             <HeartIcon className='w-7 h-7 md:hidden' />
             <span className='hidden md:block'>Favoritos</span>
           </NavLink>
           <NavLink
             to='/carrito'
-            className='text-slate-600'
+            className={({ isActive }) => (isActive ? 'text-rose-500' : 'text-slate-600')}
           >
             <ShoppingBagIcon className='w-7 h-7 md:hidden' />
             <span className='hidden md:block'>Carrito</span>
