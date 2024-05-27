@@ -3,10 +3,12 @@ import { useAppStore } from '../store/useAppStore'
 
 export default function IndexPage() {
   const fetchProducts = useAppStore((state) => state.fetchProducts)
+  const fetchCategories = useAppStore((state) => state.fetchCategories)
 
   useEffect(() => {
     fetchProducts()
-  }, [fetchProducts])
+    fetchCategories()
+  }, [fetchCategories, fetchProducts])
 
   return (
     <>

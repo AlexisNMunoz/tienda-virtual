@@ -1,4 +1,5 @@
 import { z } from 'zod'
-import { ProductsAPIResponseSchema } from '../schemas/products-schema'
+import { CategoriesAPIResponseSchema, ProductsAPIResponseSchema } from '../schemas/products-schema'
 
 export type Products = z.infer<typeof ProductsAPIResponseSchema>
+export type Categories = z.infer<typeof CategoriesAPIResponseSchema>

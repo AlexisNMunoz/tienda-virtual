@@ -10,3 +10,5 @@ export const ProductsAPIResponseSchema = z.array(
     image: z.string()
   })
 )
+
+export const CategoriesAPIResponseSchema = z.array(z.string())
