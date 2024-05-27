@@ -12,6 +12,7 @@ export default function AppRouter() {
           <Route
             path='/'
             element={<IndexPage />}
+            index
           />
           <Route
             path='/favoritos'
