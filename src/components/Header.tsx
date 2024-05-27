@@ -22,7 +22,7 @@ export default function Header() {
         <div>
           <Link to='/'>
             <h2 className='uppercase font-bold text-gray-800 text-2xl break-normal text-center'>
-              Tienda Virtual
+              Marca <span className='italic text-rose-600 '>Loney</span>
             </h2>
           </Link>
         </div>
