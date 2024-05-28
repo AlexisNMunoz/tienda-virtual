@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useAppStore } from '../store/useAppStore'
+import Productos from '../components/Productos'
 
 export default function IndexPage() {
   const fetchProducts = useAppStore((state) => state.fetchProducts)
@@ -32,6 +33,8 @@ export default function IndexPage() {
           </video>
         </div>
       </div>
+
+      <Productos />
     </>
   )
 }

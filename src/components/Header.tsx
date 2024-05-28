@@ -1,5 +1,4 @@
 import { Link, NavLink } from 'react-router-dom'
-import { useAppStore } from '../store/useAppStore'
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -8,8 +7,6 @@ import {
 } from '@heroicons/react/24/outline'
 
 export default function Header() {
-  const categories = useAppStore((state) => state.categories)
-
   return (
     <header className='bg-white shadow-md fixed top-0 left-0 right-0 z-20'>
       <div className='container flex justify-between mx-auto items-center gap-4 py-8 w-[90%]'>
@@ -45,16 +42,6 @@ export default function Header() {
             <span className='hidden md:block'>Carrito</span>
           </NavLink>
         </nav>
-      </div>
-      <div className='w-full container justify-evenly mx-auto pb-3 hidden md:flex'>
-        {categories.map((category) => (
-          <button
-            key={category}
-            className='capitalize text-slate-600'
-          >
-            {category}
-          </button>
-        ))}
       </div>
     </header>
   )
