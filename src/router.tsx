@@ -3,6 +3,7 @@ import Layout from './Layout/Layout'
 import IndexPage from './views/IndexPage'
 import Favoritos from './components/Favoritos'
 import Carrito from './components/Carrito'
+import Productos from './components/Productos'
 
 export default function AppRouter() {
   return (
@@ -12,6 +13,11 @@ export default function AppRouter() {
           <Route
             path='/'
             element={<IndexPage />}
+            index
+          />
+          <Route
+            path='/productos'
+            element={<Productos />}
             index
           />
           <Route

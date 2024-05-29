@@ -1,19 +1,7 @@
-import { useEffect } from 'react'
-import { useAppStore } from '../store/useAppStore'
-import Productos from '../components/Productos'
-
 export default function IndexPage() {
-  const fetchProducts = useAppStore((state) => state.fetchProducts)
-  const fetchCategories = useAppStore((state) => state.fetchCategories)
-
-  useEffect(() => {
-    fetchProducts()
-    fetchCategories()
-  }, [fetchCategories, fetchProducts])
-
   return (
     <>
-      <div className=' relative flex justify-center items-end'>
+      <section className=' relative flex justify-center items-end'>
         <div className='absolute z-10 py-10 justify-center flex flex-col gap-3'>
           <h2 className='  font-black uppercase text-6xl italic text-rose-500'>Lonely</h2>
           <button className=' text-white underline underline-offset-4 text-sm'>Ver más</button>
@@ -32,9 +20,7 @@ export default function IndexPage() {
             />
           </video>
         </div>
-      </div>
-
-      <Productos />
+      </section>
     </>
   )
 }
