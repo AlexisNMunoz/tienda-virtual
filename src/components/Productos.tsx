@@ -6,7 +6,7 @@ export default function Productos() {
 
   return (
     <>
-      <h2 className='md:py-16 text-4xl italic text-center text-slate-600 md:mt-0 mt-24 py-10'>
+      <h2 className='py-16 text-4xl italic text-center text-slate-600  mt-24'>
         Explore la Selección de las Creaciones
       </h2>
       <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 container mx-auto w-[90%] content-center gap-4 py-5'>
