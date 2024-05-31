@@ -5,13 +5,16 @@ import SkeletonAnimation from './SkeletonAnimation'
 
 export default function Productos() {
   const products = useAppStore((state) => state.products)
+  const favorites = useAppStore((state) => state.favorites)
   const fetchProducts = useAppStore((state) => state.fetchProducts)
 
   const hasProducts = useMemo(() => products.length, [products])
+  const hasFavorites = useMemo(() => favorites.length, [favorites])
 
   useEffect(() => {
     fetchProducts()
-  }, [fetchProducts])
+    hasFavorites
+  }, [fetchProducts, hasFavorites])
 
   return (
     <>
