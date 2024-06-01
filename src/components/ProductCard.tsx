@@ -16,12 +16,12 @@ export default function ProductCard({ product }: ProductCardProps) {
       <button className='w-full flex flex-row-reverse'>
         {!favoriteExist(product.id) ? (
           <HeartIconLine
-            className='w-7'
+            className='w-7 text-slate-500'
             onClick={() => handleClickFavorite(product)}
           />
         ) : (
           <HeartIcon
-            className='w-7 text-red-600'
+            className='w-7 text-rose-500'
             onClick={() => handleClickFavorite(product)}
           />
         )}
