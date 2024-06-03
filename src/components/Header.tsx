@@ -7,8 +7,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const favorites = useAppStore((state) => state.favorites)
+  const cart = useAppStore((state) => state.cart)
 
   const hasFavorites = useMemo(() => favorites.length, [favorites])
+  const hasCart = useMemo(() => cart.length, [cart])
 
   const handleClickMenu = () => {
     setMenuOpen(!menuOpen)
@@ -75,9 +77,16 @@ export default function Header() {
             </NavLink>
             <NavLink
               to='/carrito'
-              className={({ isActive }) => (isActive ? 'text-rose-500' : 'text-slate-600')}
+              className={({ isActive }) =>
+                isActive ? 'text-rose-500 relative' : 'text-slate-600 relative'
+              }
             >
               <ShoppingBagIcon className='w-7 h-7 md:hidden' />
+              {hasCart ? (
+                <span className='md:hidden absolute top-5 right-0 w-2 h-2 bg-rose-500 rounded-full'></span>
+              ) : (
+                ''
+              )}
               <span className='hidden md:block'>Carrito</span>
             </NavLink>
           </nav>
