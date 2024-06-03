@@ -4,6 +4,8 @@ import { formatCurrency } from '../hooks/formatCurrency'
 export default function Cardfavorite() {
   const favorites = useAppStore((state) => state.favorites)
   const handleClickFavorite = useAppStore((state) => state.handleClickFavorite)
+  const handleClickCart = useAppStore((state) => state.handleClickCart)
+  const cartExist = useAppStore((state) => state.cartExist)
 
   return (
     <>
@@ -39,8 +41,11 @@ export default function Cardfavorite() {
                   >
                     Eliminar de favoritos
                   </button>
-                  <button className=' text-rose-500 font-semibold text-sm'>
-                    Agregar al carrito
+                  <button
+                    onClick={() => handleClickCart(favorite)}
+                    className=' text-rose-500 font-semibold text-sm'
+                  >
+                    {cartExist(favorite.id) ? 'Quitar del carrito' : 'Agregar al carrito'}
                   </button>
                 </div>
               </div>
