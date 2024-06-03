@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './Layout/Layout'
 import IndexPage from './views/IndexPage'
-import Carrito from './components/Carrito'
 import Productos from './components/Productos'
 import FavoritePage from './views/FavoritePage'
+import CartPage from './views/CartPage'
 
 export default function AppRouter() {
   return (
@@ -26,7 +26,7 @@ export default function AppRouter() {
           />
           <Route
             path='/carrito'
-            element={<Carrito />}
+            element={<CartPage />}
           />
         </Route>
       </Routes>

@@ -5,7 +5,6 @@ import { useAppStore } from '../store/useAppStore'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
-
   const favorites = useAppStore((state) => state.favorites)
   const cart = useAppStore((state) => state.cart)
 
