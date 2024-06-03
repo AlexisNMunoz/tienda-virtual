@@ -8,34 +8,45 @@ export default function Cardfavorite() {
   return (
     <>
       {favorites.map((favorite) => (
-        <div
+        <section
           key={favorite.id}
-          className='px-3 py-4 md:flex md:flex-row flex flex-col gap-8 mx-10 items-center space-y-2 border-b-2'
+          className='flex mx-10 md:flex md:flex-row flex-col justify-between space-y-2 border-b-2'
         >
-          <div className='w-24 h-32 flex justify-center overflow-hidden'>
-            <img
-              src={`${favorite.image}`}
-              alt={`Imagen de ${favorite.title}`}
-              className='object-contain'
-            />
-          </div>
-          <div className=' flex flex-col items-start space-y-5'>
-            <h2 className=' text-2xl text-slate-700'>{favorite.title}</h2>
-            <p className='text-slate-700'>
-              Precio:{' '}
-              <span className='font-semibold text-slate-700'>{formatCurrency(favorite.price)}</span>
-            </p>
-            <div className='flex gap-4'>
-              <button
-                onClick={() => handleClickFavorite(favorite)}
-                className=' text-slate-500 text-sm'
-              >
-                Eliminar de favoritos
-              </button>
-              <button className=' text-rose-500 font-semibold text-sm'>Agregar al carrito</button>
+          <div className='px-3 py-4  md:flex md:flex-row flex flex-col gap-8 items-center'>
+            <div className='w-24 h-32 flex justify-center overflow-hidden'>
+              <img
+                src={`${favorite.image}`}
+                alt={`Imagen de ${favorite.title}`}
+                className='object-contain'
+              />
+            </div>
+
+            <div className=' flex flex-col items-start space-y-5 w-full'>
+              <h2 className=' text-2xl text-slate-700'>{favorite.title}</h2>
+
+              <div className='flex items-start justify-start flex-col gap-2'>
+                <p className='text-slate-700'>
+                  Precio:{' '}
+                  <span className='font-semibold text-slate-700'>
+                    {formatCurrency(favorite.price)}
+                  </span>
+                </p>
+
+                <div className='flex gap-4 '>
+                  <button
+                    onClick={() => handleClickFavorite(favorite)}
+                    className=' text-slate-500 text-sm'
+                  >
+                    Eliminar de favoritos
+                  </button>
+                  <button className=' text-rose-500 font-semibold text-sm'>
+                    Agregar al carrito
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       ))}
     </>
   )
