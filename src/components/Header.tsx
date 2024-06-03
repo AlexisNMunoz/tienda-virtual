@@ -1,9 +1,14 @@
 import { Link, NavLink } from 'react-router-dom'
 import { Bars3Icon, HeartIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import { useAppStore } from '../store/useAppStore'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const favorites = useAppStore((state) => state.favorites)
+
+  const hasFavorites = useMemo(() => favorites.length, [favorites])
 
   const handleClickMenu = () => {
     setMenuOpen(!menuOpen)
@@ -55,9 +60,17 @@ export default function Header() {
           <nav className='flex md:gap-8 gap-5  items-center'>
             <NavLink
               to='/favoritos'
-              className={({ isActive }) => (isActive ? 'text-rose-500' : 'text-slate-600')}
+              className={({ isActive }) =>
+                isActive ? 'text-rose-500 relative' : 'text-slate-600 relative'
+              }
             >
               <HeartIcon className='w-7 h-7 md:hidden' />
+              {hasFavorites ? (
+                <span className='md:hidden absolute top-5 right-0 w-2 h-2 bg-rose-500 rounded-full'></span>
+              ) : (
+                ''
+              )}
+
               <span className='hidden md:block'>Favoritos</span>
             </NavLink>
             <NavLink
