@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react'
 import { Outlet } from 'react-router-dom'
 import { useAppStore } from '../store/useAppStore'
 import Header from '../components/Header'
+import Notification from '../components/Notification'
 
 export default function Layout() {
   const loadFromStorage = useAppStore((state) => state.loadFromStorage)
@@ -17,6 +18,7 @@ export default function Layout() {
   }, [hasCart, loadFromStorage, loadFromStorageCart])
   return (
     <>
+      <Notification />
       <Header />
       <main>
         <Outlet />
