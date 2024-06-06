@@ -46,6 +46,7 @@ export default function Header() {
                     : 'text-slate-600 absolute top-[6.5rem] bg-white p-2 rounded shadow-md sm:hidden block'
                 }
                 to='/productos'
+                onClick={handleClickMenu}
               >
                 Productos
               </NavLink>
