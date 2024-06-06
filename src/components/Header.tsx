@@ -22,12 +22,12 @@ export default function Header() {
           <div className='flex md:gap-8 gap-5 items-center'>
             <button className=' block sm:hidden'>
               <Bars3Icon
+                onClick={handleClickMenu}
                 className={`${
                   menuOpen
                     ? 'w-6 h-6 text-gray-600 rotate-90 transition-transform'
                     : 'w-6 h-6 text-gray-600 transition-transform'
                 }`}
-                onClick={handleClickMenu}
               />
             </button>
             <NavLink
