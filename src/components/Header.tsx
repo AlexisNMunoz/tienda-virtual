@@ -20,7 +20,7 @@ export default function Header() {
       <header className='bg-white shadow-md fixed top-0 left-0 right-0 z-20'>
         <div className='container flex justify-between mx-auto items-center gap-4 py-8 w-[90%]'>
           <div className='flex md:gap-8 gap-5 items-center'>
-            <button className=' block sm:hidden'>
+            <button className=' block sm:hidden z-50'>
               <Bars3Icon
                 onClick={handleClickMenu}
                 className={`${
@@ -30,29 +30,36 @@ export default function Header() {
                 }`}
               />
             </button>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? 'text-rose-500 hidden sm:block' : 'text-slate-600 hidden sm:block'
-              }
+
+            <div
+              className={`bg-white absolute left-0 top-0 h-screen px-8 py-4 w-2/3 shadow-md ${
+                menuOpen ? 'left-0' : ' left-[-100%]'
+              } duration-500 sm:hidden`}
+            >
+              <div className='w-full flex flex-col justify-around mt-20'>
+                <Link to='/productos'>Productos</Link>
+                <div className='flex items-center gap-2'>
+                  <Link to='/favoritos'>Favoritos</Link>
+                  {favorites.length ? (
+                    <div className='flex justify-center w-5 h-5  text-white text-sm font-semibold  bg-rose-500 rounded-full'>
+                      <span className='flex items-center'>
+                        {favorites.length <= 9 ? favorites.length : '9+'}
+                      </span>
+                    </div>
+                  ) : null}
+                </div>
+                <Link to='/carrito'>Carrito</Link>
+              </div>
+            </div>
+            <Link
+              className='sm:block hidden'
               to='/productos'
             >
               Productos
-            </NavLink>
-            {menuOpen && (
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? 'text-rose-500 absolute top-[6.5rem] bg-white p-2 rounded shadow-md sm:hidden block'
-                    : 'text-slate-600 absolute top-[6.5rem] bg-white p-2 rounded shadow-md sm:hidden block'
-                }
-                to='/productos'
-                onClick={handleClickMenu}
-              >
-                Productos
-              </NavLink>
-            )}
+            </Link>
           </div>
-          <div>
+
+          <div className='z-50'>
             <Link to='/'>
               <h2 className='uppercase font-bold text-gray-800 text-2xl break-normal text-center'>
                 Marca <span className='italic text-rose-600 '>Lonely</span>
